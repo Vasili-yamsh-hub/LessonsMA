@@ -31,16 +31,22 @@ def get_wether(cty):
             
         res2 = re.get(url_2, params_2)
         data2 = res2.json()
-        #print(cityid)
+        #print(data2)
         #print(data2)    
         # print("conditions:", data2['weather'][0]['description'])
         # print("temp:", data2['main']['temp'])
         # print("temp_min:", data2['main']['temp_min'])
-        # print("temp_max:", data2['main']['temp_max'])
-        wet = data2['weather'][0]['description']
-        return wet
+        #print("city:", data2['sys']['country'])
+
+        temp = data2['main']
+        wet =  data2['weather'][0]['description']
+        c =   data2['name']
+        
+        response = f"{c}\n{wet}\n{temp}"
+        return response
         
     except:
         pass
     
+
 
